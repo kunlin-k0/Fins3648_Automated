@@ -1,0 +1,7 @@
+# Local-only private contribution ledger — NEVER leaves this machine.
+# This is Kunlin's silent record of teammate engagement. Do not commit or push.
+/private/
+
+# OS / IDE cruft
+.DS_Store
+.idea/
