@@ -1,63 +1,80 @@
 # Fins3648_Automated
 
-Agent-assisted workspace for the FINS3648 capstone project. Built by Kunlin (CTO).
+Agent-assisted workspace for the FINS3648 capstone. Kunlin (CTO) leads; the whole team
+refines from one shared draft.
 
 ## What this is
-A Claude Code project that keeps the capstone anchored to course material and to the actual
-marking criteria. The rules in `CLAUDE.md` are enforced on every piece of generated content —
-particularly: nothing goes in the report unless it is grounded in a course concept, a real
-citation, or a labelled assumption.
+A Claude Code project that keeps the capstone anchored to course material and the marking
+criteria. The rules in `CLAUDE.md` are enforced on every piece of generated content — nothing
+enters a deliverable unless it is grounded in a course concept, a real citation, or a
+labelled assumption, and no number is invented.
 
-## Setup
-1. Put this folder in `~/Documents/Github/Fins3648_Automated`.
-2. Open it with Claude Code (`claude` from inside the folder).
-3. `git init && git add -A && git commit -m "P0: scaffold"`.
+## The workflow (one draft, whole team, refine)
+```
+Set topic in /config/team.md
+        │
+        ▼
+draft-run  →  ONE integrated draft in /results/drafts/draft_YYYY-MM-DD.md
+              (all five roles, plain English, AI-friendly, all evidence PROPOSED)
+        │
+        ▼
+Kunlin verifies sources (PROPOSED → VERIFIED). Nothing is approved while sleeping.
+        │
+        ▼
+Kunlin + team challenge it  →  they drop the ONE file into any AI + send feedback
+        │                        (silent contribution marker logged privately)
+        ▼
+Refine  →  next dated draft   (repeat until stable)
+        │
+        ▼
+Deck FIRST (pitch-deck-builder)  →  Report SECOND (report-assembler)
+        │                            both derive from the SAME draft → no contradiction
+        ▼
+course-alignment-check = READY  →  submit
+```
 
-Skills load automatically from `.claude/skills/`. No configuration needed.
+The single integrated draft *is* the handover. No separate packs, no "what did you do?" —
+every teammate reads one self-contained, AI-friendly file and sees the whole project.
 
 ## Layout
 ```
-CLAUDE.md            Hard rules. Read this first — it is enforced, not advisory.
+CLAUDE.md            Hard rules (1–14). Enforced, not advisory. Read first.
 STYLE.md             Single-voice style guide. Loaded before any writing.
+config/team.md       Topic, framing, roster. A run reads this. Topic gate lives here.
 course/              Condensed W1–W7 notes + assessment spec + case index.
-phases/PHASES.md     P0–P7 workflow with gates.
-evidence/            Sourced-claims register. Fill as you go.
-deliverables/        report/ deck/ financials/ — outputs land here.
-handover/            Templates for the five handover packs and speaker briefs.
-.claude/skills/      Eight skills (below).
+phases/PHASES.md     Internal checklist for one run (not manual gates).
+evidence/            Evidence log with PROPOSED → VERIFIED two-gate states.
+results/drafts/      Where each integrated draft lands. TEMPLATE-draft.md + README.
+deliverables/        report/ deck/ financials/ — final outputs land here.
+private/             GIT-IGNORED, local-only. Silent contribution ledger. Never shared.
+handover/            Folded into the draft; see handover/README.md.
+.claude/skills/      Role skills + draft-run + contribution-marker.
 ```
 
 ## The skills
-Five by role, three by deliverable:
-
-| Skill | Owner | Produces |
+| Skill | Role | Produces |
 |---|---|---|
-| `ceo-problem-market` | CEO | Problem statement, sizing, why-now, competitive map |
-| `cmo-positioning-gtm` | CMO | Segment, positioning, GTM, pitch storyline |
+| `draft-run` | orchestrator | The one integrated draft (runs everything at once) |
+| `ceo-problem-market` | CEO | Problem, sizing, why-now, competitive map |
+| `cmo-positioning-gtm` | CMO | Segment, positioning, GTM, storyline |
 | `cto-solution-architecture` | CTO | Architecture, model justification, prototype scope |
 | `cfo-business-model-financials` | CFO | Revenue model, unit economics, 5-yr P&L, the ask |
 | `coo-delivery-risk-compliance` | COO | Implementation, risk register, regulatory pathway |
-| `report-assembler` | — | 25-page assembly, page budget, voice harmonisation |
-| `pitch-deck-builder` | — | 10–12 slides, 5 min, five equal speaking blocks |
+| `pitch-deck-builder` | — | Deck FIRST: 10–12 slides, 5 min, five equal speakers |
+| `report-assembler` | — | Report SECOND: 25-page assembly, page budget, one voice |
 | `course-alignment-check` | — | **The gate.** Run before anything is called finished |
+| `contribution-marker` | Kunlin only | Private, local-only record of teammate engagement |
 
-The role skills are named by function, not persona, so they trigger reliably on the task
-rather than on a job title. `course-alignment-check` is the one that protects the marks —
-run it often, and do not argue with it.
-
-## Workflow
-Kunlin drafts P1–P5, extracts the deck at P6, then hands each member a pack containing their
-section, the decisions made on their behalf, what is deliberately unfinished, and a **speaker
-brief** so they can defend the content live. The team refines from P6; Kunlin re-runs
-assembly and the gate after their edits.
-
-50/50 split: draft and evidence base from Kunlin, refinement and delivery from the team.
-
-## Three things that will cost marks if ignored
-1. **Report before deck.** Building the deck first produces a deck that contradicts the report.
-2. **Justify every technology.** "We use AI" was explicitly called out as unacceptable.
-3. **One voice.** Five people editing will fragment it. Re-run the voice pass every time.
+## Hard rules that cost marks if ignored
+1. **Master draft first**, then deck, then report — all from one spine (no contradictions).
+2. **Never invent numbers.** Fabricated stats in a submission is an integrity breach.
+3. **Justify every technology.** "We use AI" was explicitly called unacceptable.
+4. **No drafting without a topic** set in `config/team.md`.
+5. **Overnight runs only draft**, never approve; evidence is verified by a human.
 
 ## Deadlines
 Deck (PPT) 12:00 noon Wed Week 10 · Live pitch Week 10 class · Report (PDF) 21:00 Sun Week 10.
 Full detail in `course/00-assessment-spec.md`.
+
+## Setup
+This folder is a git repo. Private ledger is git-ignored. `git log` shows the restructure.

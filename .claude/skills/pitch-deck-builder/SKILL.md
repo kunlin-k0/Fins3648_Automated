@@ -9,9 +9,18 @@ Read `/CLAUDE.md` (**Rule 5**), `/course/00-assessment-spec.md` and
 `/course/week-06-capstone-tutorial.md`.
 
 ## Precondition
-**The report draft must exist first.** This skill extracts from the report; it does not
-originate content. If asked to build the deck before the report spine is drafted, say so
-and stop. (CLAUDE.md Rule 5.)
+**A stable integrated draft must exist first** in `/results/drafts/`. The deck is built
+**before** the report, but both extract from the *same* draft — this skill does not
+originate content. If asked to build the deck before a draft exists, say so and stop.
+(CLAUDE.md Rule 5.) Every hook number must trace to a VERIFIED figure, not a PROPOSED one.
+
+## Generating the PPTX (optional tool)
+For native, editable PowerPoint output, the team may use **ppt-master**
+(github.com/hugohe3/ppt-master — Python 3.10+, `pip install -r requirements.txt`; installable
+as a Claude Code skill or standalone). It produces real editable PPTX (shapes/charts/tables),
+which matches the "submit in PPT format" requirement. Vet the third-party code and check its
+licence before an unattended run uses it. Content still comes from the draft; ppt-master only
+renders it.
 
 ## Structure
 hook → problem → solution → market opportunity → business model → team → **the ask**
@@ -34,7 +43,7 @@ The number must exist in the financial model. A hook the CFO cannot defend is a 
   different slides.
 
 ## Procedure
-1. Extract from the report — never write new claims here.
+1. Extract from the stable integrated draft — never write new claims here.
 2. Assign each slide an owner and a speaker; they need not be the same person, but the
    speaker must be able to defend it.
 3. Write a script with word counts per speaker. Sum it. If over 750, cut.
@@ -45,7 +54,7 @@ The number must exist in the financial model. A hook the CFO cannot defend is a 
    and in person — video is not accepted.
 
 ## Refuse to produce
-- A deck built before the report.
+- A deck built before a stable integrated draft exists.
 - A text-dense slide.
 - A speaking split where one member has materially more time.
 - A hook number that does not appear in `/deliverables/financials/`.

@@ -8,6 +8,12 @@ description: Use when assembling, merging, editing, formatting or page-counting 
 Read `/CLAUDE.md`, `/STYLE.md` and `/course/00-assessment-spec.md`. This skill owns the
 page budget and the voice. It has authority to cut.
 
+## Source and order (CLAUDE.md Rule 5)
+The report is **assembled second — after the deck** — from the **same** stable integrated
+draft in `/results/drafts/`. Do not originate new claims here: every claim must already
+exist (and be VERIFIED, or explicitly tagged) in the latest draft. One spine → deck and
+report both derive from it, so they cannot contradict.
+
 ## The spine (fixed order — W6 narrative flow)
 1. Title page *(counts toward 25)*
 2. Executive summary
